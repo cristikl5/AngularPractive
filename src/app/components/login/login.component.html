@@ -1,0 +1,37 @@
+<div class="container py-5 h-100">
+  <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="col-12 col-md-8 col-lg-8 col-xl-5">
+      <div class="card bg-dark text-white" style="border-radius: 1rem;">
+        <div class="card-body p-5 text-center">
+          <div class="mb-md-5 mt-md-4 pb-5"></div>
+
+          <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
+          <p class="text-white-50 mb-5">Please insert your login and password</p>
+
+          <form [formGroup]="form" (ngSubmit)="submit()">
+            <div class="form-outline form-white mb-4">
+              <input type="text" formControlName="username" class="form-control form-control-lg">
+              <label class="form-label">Email</label>
+              <div *ngIf="this.form.get('username')?.invalid && this.form.get('username')?.touched" class="text-danger">
+                <div *ngIf="this.form.get('username')?.errors?.required">Username is required</div>
+                <div *ngIf="this.form.get('username')?.errors?.minlength">Username should be at least 3 characters</div>
+                <div *ngIf="this.form.get('username')?.errors?.maxlength">Username should be at most 20 characters</div>
+              </div>
+            </div>
+
+            <div class="form-outline form-white mb-4">
+              <input type="password" formControlName="password" class="form-control form-control-lg">
+              <label class="form-label">Password</label>
+              <div *ngIf="this.form.get('password')?.invalid && this.form.get('password')?.touched" class="text-danger">
+                <div *ngIf="this.form.get('password')?.errors?.required">Username is required</div>
+                <div *ngIf="this.form.get('password')?.errors?.minlength">Username should be at least 8 characters</div>
+                <div *ngIf="this.form.get('password')?.errors?.maxlength">Username should be at most 25 characters</div>
+              </div>
+            </div>
+            <button [disabled]="this.form.invalid" type="submit" class="btn btn-outline-info px-5">Login</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
