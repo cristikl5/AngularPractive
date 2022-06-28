@@ -10,12 +10,17 @@ import {AuthService} from "../../services/auth.service";
 })
 export class LoginComponent implements OnInit {
   form!: FormGroup;
+  isLoading: boolean = false;
+  isError = false;
 
   constructor(private router: Router, private authService: AuthService) {
   }
 
   ngOnInit(): void {
     this.initForm()
+    if (this.authService.isLoggedIn()) {
+      this.router.navigate(['/admin'])
+    }
   }
 
   initForm() {
@@ -26,12 +31,15 @@ export class LoginComponent implements OnInit {
   }
 
   submit() {
-    this.authService.login(this.form.value).subscribe((res) => {
+    this.isLoading = true
+    this.authService.login(this.form.value).subscribe(() => {
       this.router.navigate(['admin'])
+      this.isLoading = true;
+      this.isError = false;
     }, (err) => {
-      alert(err.message)
+      this.isLoading = false
+      this.isError = true;
     })
-
   }
 
 }
