@@ -4,8 +4,18 @@
       <div>
         <h5> {{user.name}}</h5>
         <button class="btn btn-success" [routerLink]="['user',user.id]">Details</button>
-        <button class="btn btn-danger ml-2" (click)="deleteUser(user)">Delete</button>
+        <button class="btn btn-danger ml-2" (click)="open(content,user)">Delete</button>
       </div>
     </div>
   </div>
 </div>
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Do you really want to delete this contact?</h4>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Close</button>
+    <button type="button" class="btn btn-danger" (click)="c('delete')">Delete</button>
+  </div>
+</ng-template>

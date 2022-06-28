@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {UserModel} from "../../../../models/user.model";
 import {AdminService} from "../../services/admin.service";
-import {map, take} from "rxjs/operators";
+import {map} from "rxjs/operators";
+import {NgbActiveModal, NgbModal} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'app-contacts',
@@ -11,7 +12,7 @@ import {map, take} from "rxjs/operators";
 export class ContactsComponent implements OnInit {
   personalList!: UserModel[]
 
-  constructor(private adminService: AdminService) {
+  constructor(private adminService: AdminService, private modalService: NgbModal) {
   }
 
   ngOnInit(): void {
@@ -24,10 +25,16 @@ export class ContactsComponent implements OnInit {
     })
   }
 
-  deleteUser(selectedUser: UserModel) {
-    this.personalList = this.personalList.filter((user) => {
-      return user.id !== selectedUser.id
+  open(content: any, user: UserModel) {
+    this.modalService.open(content).result.then((res) => {
+      if (res === 'delete') {
+        this.deleteUser(user)
+      }
     })
+  }
+
+  deleteUser(selectedUser: UserModel) {
+    this.personalList = this.personalList.filter(user => user.id !== selectedUser.id)
   }
 
 }

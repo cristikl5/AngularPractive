@@ -9,15 +9,17 @@ import {AdminDashboardComponent} from "./components/admin-dashboard/admin-dashbo
 import {HomeComponent} from "./components/home/home.component";
 import {ContactsComponent} from './components/contacts/contacts.component';
 import {ContactsDetailsComponent} from './components/contacts-details/contacts-details.component';
-import {HttpClientModule} from "@angular/common/http";
+import {ContactsDeleteModalComponent} from './components/contacts/contacts-delete-modal/contacts-delete-modal.component';
+import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 
 
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent, AdminDashboardComponent, HomeComponent, ContactsComponent, ContactsDetailsComponent],
+  declarations: [HeaderComponent, FooterComponent, AdminDashboardComponent, HomeComponent, ContactsComponent, ContactsDetailsComponent, ContactsDeleteModalComponent],
   imports: [
     CommonModule,
     AdminRoutingModule
-  ]
+  ],
+  providers: [NgbActiveModal]
 })
 export class AdminModule {
 }
