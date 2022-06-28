@@ -10,12 +10,12 @@
   </div>
 </div>
 
-<ng-template #content let-c="close" let-d="dismiss">
+<ng-template #content let-modal>
   <div class="modal-header">
     <h4 class="modal-title">Do you really want to delete this contact?</h4>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Close</button>
-    <button type="button" class="btn btn-danger" (click)="c('delete')">Delete</button>
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close()">Close</button>
+    <button type="button" class="btn btn-danger" (click)="onDelete()">Delete</button>
   </div>
 </ng-template>
