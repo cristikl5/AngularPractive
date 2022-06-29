@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from "../../../../services/auth.service";
+import {NgsRevealConfig} from "ngx-scrollreveal";
 
 @Component({
   selector: 'app-header',
@@ -8,7 +9,10 @@ import {AuthService} from "../../../../services/auth.service";
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService, private config: NgsRevealConfig) {
+    config.origin = "top"
+    config.duration = 2000;
+    config.distance = "30px"
   }
 
   ngOnInit(): void {

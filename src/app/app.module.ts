@@ -9,6 +9,7 @@ import {NotFoundComponent} from './components/not-found/not-found.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {RegistrationComponent} from './components/registration/registration.component';
 import {HttpClientModule} from "@angular/common/http";
+import {NgsRevealModule} from "ngx-scrollreveal";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {HttpClientModule} from "@angular/common/http";
     AppRoutingModule,
     NgbModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgsRevealModule
   ],
   providers: [],
   bootstrap: [AppComponent]

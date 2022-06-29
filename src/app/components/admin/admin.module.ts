@@ -10,13 +10,14 @@ import {HomeComponent} from "./components/home/home.component";
 import {ContactsComponent} from './components/contacts/contacts.component';
 import {ContactsDetailsComponent} from './components/contacts-details/contacts-details.component';
 import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
+import {SearchContactsComponent} from "./components/contacts/search-contacts/search-contacts.component";
 
 
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent, AdminDashboardComponent, HomeComponent, ContactsComponent, ContactsDetailsComponent],
+  declarations: [HeaderComponent, FooterComponent, AdminDashboardComponent, HomeComponent, ContactsComponent, ContactsDetailsComponent, SearchContactsComponent],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
   ],
   providers: [NgbActiveModal]
 })

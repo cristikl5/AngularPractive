@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {AuthService} from "../../services/auth.service";
+import {NgsRevealConfig} from "ngx-scrollreveal";
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,10 @@ export class LoginComponent implements OnInit {
   isLoading: boolean = false;
   isError = false;
 
-  constructor(private router: Router, private authService: AuthService) {
+  constructor(private router: Router, private authService: AuthService, private config: NgsRevealConfig) {
+    config.duration = 2000;
+    config.distance = "30px"
+    config.origin = "top"
   }
 
   ngOnInit(): void {

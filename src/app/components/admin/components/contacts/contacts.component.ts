@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {UserModel} from "../../../../models/user.model";
 import {AdminService} from "../../services/admin.service";
 import {map} from "rxjs/operators";
-import {NgbActiveModal, NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'app-contacts',
@@ -32,7 +32,9 @@ export class ContactsComponent implements OnInit {
   }
 
   onDelete() {
-    this.personalList = this.personalList.filter(user => user.id !== this.deleteId)
+    this.personalList = this.personalList.filter(user => {
+     return  user.id !== this.deleteId
+    })
     this.modalService.dismissAll()
   }
 }
