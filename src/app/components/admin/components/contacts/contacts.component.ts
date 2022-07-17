@@ -12,6 +12,7 @@ import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 export class ContactsComponent implements OnInit {
   personalList!: UserModel[]
   private deleteId!: string
+  searchText!: string
 
   constructor(private adminService: AdminService, private modalService: NgbModal) {
   }
@@ -33,7 +34,7 @@ export class ContactsComponent implements OnInit {
 
   onDelete() {
     this.personalList = this.personalList.filter(user => {
-     return  user.id !== this.deleteId
+      return user.id !== this.deleteId
     })
     this.modalService.dismissAll()
   }
