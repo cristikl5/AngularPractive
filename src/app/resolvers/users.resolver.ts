@@ -1,12 +1,12 @@
 import {Injectable} from '@angular/core';
 import {
-  Router, Resolve,
+  Resolve,
   RouterStateSnapshot,
   ActivatedRouteSnapshot
 } from '@angular/router';
-import {EMPTY, Observable, of} from 'rxjs';
+import {Observable} from 'rxjs';
 import {AdminService} from "../components/admin/services/admin.service";
-import {catchError, delay} from "rxjs/operators";
+import {delay} from "rxjs/operators";
 import {UserModel} from "../models/user.model";
 
 @Injectable({
@@ -17,6 +17,6 @@ export class UsersResolver implements Resolve<UserModel[]> {
   }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<UserModel[]> {
-    return this.adminService.getPersons().pipe(delay(1000));
+    return this.adminService.getPersons().pipe(delay(3000));
   }
 }

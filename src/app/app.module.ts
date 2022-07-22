@@ -9,7 +9,8 @@ import {NotFoundComponent} from './components/not-found/not-found.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {RegistrationComponent} from './components/registration/registration.component';
 import {HttpClientModule} from "@angular/common/http";
-import {NgsRevealModule} from "ngx-scrollreveal";
+import {SharedModule} from "./shared/shared.module";
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {NgsRevealModule} from "ngx-scrollreveal";
     NgbModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgsRevealModule
+    SharedModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

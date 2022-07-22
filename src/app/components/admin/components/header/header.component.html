@@ -7,6 +7,12 @@
     <nav class="navbar" ngsReveal ngsInterval="200">
       <ul class="navbar nav ml-auto">
         <li class="px-2">
+          <div class="d-flex align-items-center">
+            <fa-icon [icon]="faSearch" class="px-2" (click)="onIconClick()"></fa-icon>
+            <input type="text" class="form-control"  *ngIf="isSearching" (input)="onSearchInput($event)">
+          </div>
+        </li>
+        <li class="px-2">
           <a
             routerLinkActive="active"
             class="text-info text-decoration-none ms-3 p-1"

@@ -1,6 +1,5 @@
-<input type="text" class="form-control form-control-solid" [(ngModel)]="searchText">
 <div class="col-4 mx-2 mt-2">
-  <div class="card bg-dark text-white mt-2" style="border-radius: 1rem"
+  <div class="card bg-dark text-white mt-2" style="border-radius: 1rem" ngsReveal ngsInterval="200"
        *ngFor="let user of personalList | filter:searchText">
     <div class="card-body p-2 text-center">
       <div>
